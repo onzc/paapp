@@ -1,0 +1,4 @@
+class JsonHelper extends AbstractJsonHelper {
+	
+	
+}
