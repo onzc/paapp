@@ -6,10 +6,10 @@ class TeamServiceTest {
 	private static final String TEAM_1 = "Leicester Tigers";
 	private static final String TEAM_2 = "Newcastle Falcons";
 
-	private TeamService m_teamService;
+	private SimpleTeamService m_teamService;
 	@org.junit.jupiter.api.BeforeEach
 	void setUp() {
-		m_teamService = new TeamService();
+		m_teamService = new SimpleTeamService();
 	}
 	@org.junit.jupiter.api.AfterEach
 	void tearDown() {
@@ -17,7 +17,7 @@ class TeamServiceTest {
 	}
 	@org.junit.jupiter.api.Test
 	void isSetUpCorrectly() {
-		assertEquals(0, m_teamService.findAll().size());
+		assertEquals(0, m_teamService.findAllTeams().size());
 	}
 	@org.junit.jupiter.api.Test
 	void findById() {
@@ -40,26 +40,26 @@ class TeamServiceTest {
 	void update() {
 		Team added = addTeam(m_teamService, TEAM_1);
 		assertEquals(TEAM_1, added.getName());
-		Team updated = m_teamService.update(added.getId(), TEAM_2);
+		Team updated = m_teamService.updateTeam(added.getId(), TEAM_2);
 		assertEquals(TEAM_2, updated.getName());
 	}
 	@org.junit.jupiter.api.Test
 	void delete() {
 		Team team1 = addTeam(m_teamService, TEAM_1);
 		addTeam(m_teamService, TEAM_2);
-		assertEquals(2, m_teamService.findAll().size());
+		assertEquals(2, m_teamService.findAllTeams().size());
 
-		m_teamService.delete(team1.getId());
-		assertEquals(1, m_teamService.findAll().size());
+		m_teamService.deleteTeam(team1.getId());
+		assertEquals(1, m_teamService.findAllTeams().size());
 	}
 	@org.junit.jupiter.api.Test
 	void findAll() {
 		addTeam(m_teamService, TEAM_1);
 		addTeam(m_teamService, TEAM_2);
-		assertEquals(2, m_teamService.findAll().size());
+		assertEquals(2, m_teamService.findAllTeams().size());
 	}
 
-	private Team addTeam(TeamService p_teamService, String p_name) {
-		return p_teamService.add(p_name);
+	private Team addTeam(SimpleTeamService p_teamService, String p_name) {
+		return p_teamService.addTeam(p_name);
 	}
 }

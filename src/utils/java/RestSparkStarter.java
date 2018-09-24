@@ -1,3 +1,5 @@
+import Team.SimpleTeamService;
+
 public class RestSparkStarter extends SparkStarter {
 
 	private static RestSparkStarter starter;
@@ -19,7 +21,6 @@ public class RestSparkStarter extends SparkStarter {
 		return RestSparkStarter.starter;
 	}
 
-
 	static Server server;
 
 	public boolean isRunning() {
@@ -35,8 +36,8 @@ public class RestSparkStarter extends SparkStarter {
 
 	@Override
 	public void startServer() {
-
-		server = new Server(m_port);
+		SimpleTeamService simpleTeamService = new SimpleTeamService();
+		server = new Server(m_port, simpleTeamService);
 
 	}
 
