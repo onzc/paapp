@@ -44,7 +44,8 @@ public class APITest {
 		RestResponse response2 = addTestTeam(TEAM_2);
 		assertTrue(response2.getResponseCode() == 201);
 		RestResponse responseDelete = RestUtils.sendDelete("http://localhost:4567/team/1");
-		assertTrue(responseDelete.getResponseCode() == 201);
+		
+		assertTrue(responseDelete.getResponseCode() == 200);
 
 	}
 	private RestResponse addTestTeam(String p_name) throws Exception {

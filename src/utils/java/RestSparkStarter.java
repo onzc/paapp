@@ -1,4 +1,5 @@
-import Team.SimpleTeamService;
+import Team.DbTeamService;
+import Team.TeamService;
 
 public class RestSparkStarter extends SparkStarter {
 
@@ -36,8 +37,8 @@ public class RestSparkStarter extends SparkStarter {
 
 	@Override
 	public void startServer() {
-		SimpleTeamService simpleTeamService = new SimpleTeamService();
-		server = new Server(m_port, simpleTeamService);
+		TeamService teamService = new DbTeamService();
+		server = new Server(m_port, teamService);
 
 	}
 
