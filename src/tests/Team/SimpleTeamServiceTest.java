@@ -2,7 +2,7 @@ package Team;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class TeamServiceTest {
+class SimpleTeamServiceTest {
 	private static final String TEAM_1 = "Leicester Tigers";
 	private static final String TEAM_2 = "Newcastle Falcons";
 
